@@ -3,7 +3,7 @@ import React from 'react'
 import { CheckCircleIcon } from '@chakra-ui/icons'
 const VideoCard=({video})=> {
   return (
-    <Box cursor="pointer" maxW="20rem">
+    <Box cursor="pointer" maxW="20rem" color="whiteShade">
         <AspectRatio maxW="20rem" maxH="12rem">
         <Image src={video.thumbnail} objectFit="vover"></Image>
         </AspectRatio>

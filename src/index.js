@@ -5,9 +5,9 @@ import App from "./App";
 import { makeServer } from "./server";
 import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
-import {theme} from './theme'
+import { theme } from "./theme";
 import { VideoProvider } from "./context/useVideos";
-
+import { AuthProvider } from "./context/useAuth";
 
 // Call make Server
 makeServer();
@@ -15,11 +15,13 @@ makeServer();
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-    <VideoProvider>
-    <ChakraProvider theme={theme}>
-    <App />
-    </ChakraProvider>
-    </VideoProvider>  
+      <AuthProvider>
+        <VideoProvider>
+          <ChakraProvider theme={theme}>
+            <App />
+          </ChakraProvider>
+        </VideoProvider>
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

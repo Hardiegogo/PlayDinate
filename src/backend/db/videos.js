@@ -40,7 +40,7 @@ export const videos = [
   {
     _id: uuid(),
     title: "THIS is excellence! | Frenzy Fire EMEA",
-    categoryName:"eSports",
+    categoryName:"tutorials",
     thumbnail:"https://i.ytimg.com/vi/QqIX5i2gDJI/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCxw-MMa_lZO7zTkBf9_9uOlzrGzw",
     videoLink:"https://www.youtube.com/embed/QqIX5i2gDJI",
     description:

@@ -5,10 +5,11 @@ import {
   Image,
   Text,
   Grid,
-  Wrap
+  Wrap,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../../components/navbar-component/Navbar";
 import VideoCard from "../../components/video-card-component/VideoCard";
 import { useVideos } from "../../context/useVideos";
@@ -23,29 +24,34 @@ const Homepage = () => {
   const { videos } = vidState;
   return (
     <Box height="100%" bg="bgColor">
-      <Navbar />
-
-
+      <Navbar showMenu={true} />
 
       <Box w="80%" m="auto" p={8} mt={24} textAlign="center">
         <Heading color="whiteShade" fontSize="5xl">
           Get a sneakPeak into <Text>the gaming world</Text>
         </Heading>
-        <Button variant="primaryBtn" mt={8} fontSize="xl" p={4}>
-          Browse videos
-        </Button>
+        <Link to='/videos'>
+          <Button variant="primaryBtn" mt={8} fontSize="xl" p={4}>
+            Browse videos
+          </Button>
+        </Link>
+
         <Wrap justify="center" mt={8}>
-        <Button borderRadius={20} bg="secondary" >eSports</Button>
-        <Button borderRadius={20} bg="secondary">Entertainment</Button>
-        <Button borderRadius={20} bg="secondary">Tutorials</Button>
+          <Button borderRadius={20} bg="secondary">
+            eSports
+          </Button>
+          <Button borderRadius={20} bg="secondary">
+            Entertainment
+          </Button>
+          <Button borderRadius={20} bg="secondary">
+            Tutorials
+          </Button>
         </Wrap>
       </Box>
 
-    
-
-      <Box color="whiteShade" ml={8} mt={12} p={4} >
+      <Box color="whiteShade" ml={8} mt={12} p={4}>
         <Heading fontSize="2xl">Must watch</Heading>
-        <Grid templateColumns='repeat(4, 1fr)' gap={8} mt={8}>
+        <Grid templateColumns="repeat(4, 1fr)" gap={8} mt={8}>
           {videos.map((video) => (
             <VideoCard video={video} />
           ))}
