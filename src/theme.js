@@ -5,7 +5,8 @@ export const theme = extendTheme({
     bgColor: "#0D1F2D",
     primary: "#45ADA8",
     secondary: "#9DE0AD",
-    whiteShade:"#EDEDEE"
+    whiteShade:"#EDEDEE",
+    darkBg:"#0a1924"
   },
   components:{
       Button:{
