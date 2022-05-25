@@ -42,6 +42,7 @@ const LikedVideos = () => {
           Liked Videos
         </Heading>
         <Grid
+        templateColumns="repeat( auto-fit, minmax(20rem, 1fr) )"
         gap={8}
           mt={8}
         >
