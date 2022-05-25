@@ -3,9 +3,7 @@ import {
   Button,
   Heading,
   Text,
-  Input,
-  UnorderedList,
-  ListItem,
+  Input
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { HamburgerIcon } from "@chakra-ui/icons";

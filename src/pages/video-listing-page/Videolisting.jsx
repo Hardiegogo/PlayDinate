@@ -39,6 +39,13 @@ const Videolisting = () => {
       </Box>
       <Box gridArea="content" mb={4}>
         <Wrap mt={8}>
+        <Button
+            borderRadius={20}
+            bg="secondary"
+            onClick={() => setCategory("")}
+          >
+            All videos
+          </Button>
           <Button
             borderRadius={20}
             bg="secondary"
@@ -67,7 +74,7 @@ const Videolisting = () => {
           mt={8}
         >
           {filteredVideos.map((video) => (
-            <VideoCard video={video} />
+            <VideoCard video={video} key={video._id} />
           ))}
         </Grid>
       </Box>
