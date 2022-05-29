@@ -7,7 +7,9 @@ export const useVideos=()=>useContext(VideoContext)
 const initialState={
     videos:[],
     vidsLoading:'',
-    error:''
+    error:'',
+    likedVideos:[],
+    watchLaterVideos:[]
 }
 
 export const VideoProvider=({children})=>{
