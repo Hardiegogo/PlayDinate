@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 const NavMenu = () => {
   return (
     <Box position="absolute" top="4.5rem" left="2rem">
-      <UnorderedList listStyleType="none" bg="#0a1924" p={8}>
+      <UnorderedList listStyleType="none" bg="darkBg" p={8}>
         <NavLink to='/'>
         <ListItem
           display="flex"
