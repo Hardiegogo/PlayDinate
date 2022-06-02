@@ -19,7 +19,7 @@ const calculateInWatchLater=(_id,vidState)=>{
 }
 
 
-const VideoOptions=({video})=> {
+const VideoOptions=({video,isSingleVideo})=> {
     const {vidState,dispatchVid}=useVideos()
     const [isLiked,setIsLiked]=useState(calculateInLikes(video._id,vidState))
     const [isWatchLater,setIsWatchLater]=useState(calculateInWatchLater(video._id,vidState))
@@ -45,12 +45,12 @@ const VideoOptions=({video})=> {
     }
 
   return (
-    <Box position="absolute" display="flex" justifyContent="space-between" bg="darkBg" padding={2} right={4} top={4}>
-        <Box  onClick={likeVideoHandler} m={2}>
-            {isLiked ? <AiFillHeart size={25} cursor="pointer"/>:<AiOutlineHeart size={25} cursor="pointer"/>}
+    <Box position={isSingleVideo ? 'static':'absolute'} zIndex={4} display="flex" justifyContent="space-between" bg={!isSingleVideo && 'darkBg'} padding={2} right={4} top={4} color="whiteShade">
+        <Box  onClick={likeVideoHandler} m={2} cursor="pointer">
+            {isLiked ? <AiFillHeart size={25} />:<AiOutlineHeart size={25}/>}
         </Box>
-        <Box onClick={watchLaterHandler} m={2}>
-            {isWatchLater ? <MdWatchLater size={25} cursor="pointer"/>: <MdOutlineWatchLater size={25} cursor="pointer"/>}
+        <Box onClick={watchLaterHandler} m={2} cursor="pointer">
+            {isWatchLater ? <MdWatchLater size={25}/>: <MdOutlineWatchLater size={25}/>}
         </Box>
         
     </Box>

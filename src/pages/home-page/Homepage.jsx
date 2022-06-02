@@ -53,7 +53,7 @@ const Homepage = () => {
         <Heading fontSize="2xl">Must watch</Heading>
         <Grid templateColumns="repeat(4, 1fr)" gap={8} mt={8}>
           {videos.map((video) => (
-            <VideoCard video={video} />
+            <VideoCard key={video._id} video={video} />
           ))}
         </Grid>
       </Box>
