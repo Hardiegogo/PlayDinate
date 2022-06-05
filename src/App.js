@@ -4,9 +4,11 @@ import Login from "./pages/auth-pages/Login";
 import Signup from "./pages/auth-pages/Signup";
 import Homepage from "./pages/home-page/Homepage";
 import LikedVideos from "./pages/liked-video-page/LikedVideos";
+import SingleVideo from "./pages/single-video-page/SingleVideo";
 import Videolisting from "./pages/video-listing-page/Videolisting";
 import WatchLater from "./pages/watch-later-page/WatchLater";
 import RequireAuth from "./utils/RequireAuth";
+import History from "./pages/history-page/History";
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/liked-videos' element={<RequireAuth><LikedVideos/></RequireAuth>}/>
         <Route path='/watch-later' element={<RequireAuth><WatchLater/></RequireAuth>}/>
+        <Route path="/video/:videoId" element={<SingleVideo/>}/>
+        <Route path="/history" element={<RequireAuth><History/></RequireAuth>} />
       </Routes>
     </div>
   );

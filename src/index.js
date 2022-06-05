@@ -8,11 +8,14 @@ import { BrowserRouter } from "react-router-dom";
 import { theme } from "./theme";
 import { VideoProvider } from "./context/useVideos";
 import { AuthProvider } from "./context/useAuth";
+import { createRoot } from "react-dom/client";
+const container = document.getElementById('root');
+const root = createRoot(container);
 
 // Call make Server
 makeServer();
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
@@ -23,6 +26,5 @@ ReactDOM.render(
         </VideoProvider>
       </AuthProvider>
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
