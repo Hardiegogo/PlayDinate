@@ -7,7 +7,7 @@ import {
   Image,
   Text,
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useVideos } from "../../context/useVideos";
 import { loadSingleVideo } from "../../utils/video-services/loadSingleVideo";
@@ -16,15 +16,17 @@ import Sidebar from "../../components/sidebar-component/Sidebar";
 import VideoCard from "../../components/video-card-component/VideoCard";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import VideoOptions from "../../components/video-card-options-component/VideoOptions";
+import { Spinner } from '@chakra-ui/react'
 
 const SingleVideo = () => {
   const params = useParams();
   const { vidState, dispatchVid } = useVideos();
+  const [isSpinner,setIsSpinner] = useState(true)
   const { title, videoLink, description, creatorImg, creator, views } =
     vidState.video;
 
   useEffect(() => {
-    loadSingleVideo(params.videoId, dispatchVid);
+    loadSingleVideo(params.videoId, dispatchVid,setIsSpinner);
   }, [params.videoId]);
 
   const calculateSimilarVideos = (vidState, currentVideo) => {
@@ -105,14 +107,14 @@ const SingleVideo = () => {
                   </Box>
                 </Box>
               </Box>
-            ) : (
-              <Box>
-                <Heading color="whiteShade">No video found</Heading>
-                <AspectRatio w="100%" mt={8}>
-                  <Image src="https://res.cloudinary.com/dqqehaaqo/image/upload/v1654117320/PlayDinate/web_search_dgztlj.svg" />
-                </AspectRatio>
-              </Box>
-            )}
+            ) : 
+               isSpinner ? <Spinner size="xl" color="secondary"/> : <Box>
+              <Heading color="whiteShade">No video found</Heading>
+              <AspectRatio w="100%" mt={8}>
+                <Image src="https://res.cloudinary.com/dqqehaaqo/image/upload/v1654117320/PlayDinate/web_search_dgztlj.svg" />
+              </AspectRatio>
+            </Box> 
+            }
           </Box>
           <Box>
             {videoLink && (

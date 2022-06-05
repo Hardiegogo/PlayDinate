@@ -36,6 +36,11 @@ export const vidReducer = (state, action) => {
         ...state,
         video: { ...action.payload },
       };
+    case "CLEAR_VID":
+      return{
+        ...state,
+        video:{}
+      }
     case "SET_HISTORY":
     case "ADD_TO_HISTORY":
     case "REMOVE_FROM_HISTORY":

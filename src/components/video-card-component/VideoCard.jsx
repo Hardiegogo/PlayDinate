@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { addToHistory } from "../../utils/video-services/history-services/addToHistory";
 import { removeFromHistory } from "../../utils/video-services/history-services/removeFromHistory";
 
+
 const VideoCard = ({ video, videoType }) => {
   const [isVideoOptions, setIsVideoOptions] = useState(false);
   const navigate = useNavigate();
@@ -38,6 +39,7 @@ const VideoCard = ({ video, videoType }) => {
   };
   const videoClickHandler = () => {
     addToHistory(dispatchVid, video);
+    dispatchVid({type:"CLEAR_VID"})
     navigate(`/video/${video._id}`);
   };
 

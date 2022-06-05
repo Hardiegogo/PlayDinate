@@ -23,7 +23,7 @@ const Homepage = () => {
 
   const { videos } = vidState;
   return (
-    <Box height="100%" bg="bgColor">
+    <Box height="100%" minH="100vh" bg="bgColor">
       <Navbar showMenu={true} />
 
       <Box w="80%" m="auto" p={8} mt={24} textAlign="center">
