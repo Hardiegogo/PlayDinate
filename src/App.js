@@ -9,9 +9,15 @@ import Videolisting from "./pages/video-listing-page/Videolisting";
 import WatchLater from "./pages/watch-later-page/WatchLater";
 import RequireAuth from "./utils/RequireAuth";
 import History from "./pages/history-page/History";
+import { useVideos } from "./context/useVideos";
+import PlaylistModal from "./components/playlist-modal-component/PlaylistModal";
+import Playlists from "./pages/playlists-page/Playlists";
+import SinglePlaylist from "./pages/single-playlist-page/SinglePlaylist";
 
 
 function App() {
+  const {vidState}=useVideos()
+  const {isPlaylistModal,playlistModalVideo}=vidState
   return (
     <div className="App" height="100%">
       <Routes>
@@ -22,8 +28,11 @@ function App() {
         <Route path='/liked-videos' element={<RequireAuth><LikedVideos/></RequireAuth>}/>
         <Route path='/watch-later' element={<RequireAuth><WatchLater/></RequireAuth>}/>
         <Route path="/video/:videoId" element={<SingleVideo/>}/>
-        <Route path="/history" element={<RequireAuth><History/></RequireAuth>} />
+        <Route path="/history" element={<History/>}/>
+        <Route path='/playlists' element={<RequireAuth><Playlists/></RequireAuth>}/>
+        <Route path='/playlist/:playlistId' element={<RequireAuth><SinglePlaylist/></RequireAuth>}/>
       </Routes>
+      {isPlaylistModal && <PlaylistModal video={playlistModalVideo}/>}
     </div>
   );
 }

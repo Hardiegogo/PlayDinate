@@ -11,9 +11,9 @@ import { removeFromWatchLater } from "../../utils/video-services/watch-later-ser
 import { useNavigate } from "react-router-dom";
 import { addToHistory } from "../../utils/video-services/history-services/addToHistory";
 import { removeFromHistory } from "../../utils/video-services/history-services/removeFromHistory";
+import {removeFromPlaylist} from '../../utils/video-services/playlist-services/removeFromPlaylist'
 
-
-const VideoCard = ({ video, videoType }) => {
+const VideoCard = ({ video, videoType, playlistId }) => {
   const [isVideoOptions, setIsVideoOptions] = useState(false);
   const navigate = useNavigate();
   const ref = React.useRef();
@@ -21,7 +21,7 @@ const VideoCard = ({ video, videoType }) => {
     ref: ref,
     handler: () => setIsVideoOptions(false),
   });
-  const { dispatchVid } = useVideos();
+  const { vidState,dispatchVid } = useVideos();
   const deleteHandler = () => {
     switch (videoType) {
       case "likes":
@@ -32,6 +32,9 @@ const VideoCard = ({ video, videoType }) => {
         break;
       case "history":
         removeFromHistory(video, dispatchVid);
+        break;
+      case "playlist":
+        removeFromPlaylist(vidState,video,dispatchVid,playlistId);
         break;
       default:
         break;
@@ -76,7 +79,7 @@ const VideoCard = ({ video, videoType }) => {
         <Box cursor="pointer">
           {videoType === "likes" ||
           videoType === "watchlater" ||
-          videoType === "history" ? (
+          videoType === "history" || videoType==="playlist" ? (
             <AiFillDelete size={20} onClick={deleteHandler} />
           ) : (
             <BsThreeDotsVertical

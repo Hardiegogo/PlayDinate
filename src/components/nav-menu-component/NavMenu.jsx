@@ -33,6 +33,7 @@ const NavMenu = () => {
           <Text ml={1}>Videos</Text>
         </ListItem>
         </NavLink>
+        <NavLink to='/history'>
         <ListItem
           display="flex"
           alignItems="center"
@@ -43,6 +44,8 @@ const NavMenu = () => {
           <AiOutlineHistory />
           <Text ml={1}>History</Text>
         </ListItem>
+        </NavLink>
+        <NavLink to='/playlists'>
         <ListItem
           display="flex"
           alignItems="center"
@@ -53,6 +56,7 @@ const NavMenu = () => {
           <MdPlaylistPlay />
           <Text ml={1}>Playlists</Text>
         </ListItem>
+        </NavLink>
         <NavLink to='/watch-later'>
         <ListItem
           display="flex"
