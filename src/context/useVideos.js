@@ -13,7 +13,11 @@ const initialState={
     likedVideos:[],
     watchLaterVideos:[],
     history:[],
-    video:{}
+    video:{},
+    isPlaylistModal:false,
+    playlists:[],
+    playlistModalVideo:{},
+    playlist:{videos:[]}
 }
 
 export const VideoProvider=({children})=>{

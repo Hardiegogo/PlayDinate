@@ -49,6 +49,31 @@ export const vidReducer = (state, action) => {
         ...state,
         history: [...action.payload],
       };
+    case "SET_PLAYLIST_MODAL_ON":
+      return{
+        ...state,
+        isPlaylistModal:true,
+        playlistModalVideo:{...action.payload}
+      }
+    case "SET_PLAYLIST_MODAL_OFF":
+      return{
+        ...state,
+        isPlaylistModal:false,
+        playlistModalVideo:{}
+      }
+    case "ADD_PLAYLIST":
+    case "UPDATE_PLAYLISTS":
+    case "SET_PLAYLISTS":
+      return{
+        ...state,
+        playlists:[...action.payload]
+      }
+    case "SET_PLAYLIST":
+    case "UPDATE_PLAYLIST":
+      return{
+        ...state,
+        playlist:{...action.payload}
+      }
     default:
       return state;
   }

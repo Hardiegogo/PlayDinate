@@ -5,7 +5,6 @@ import Sidebar from "../../components/sidebar-component/Sidebar";
 import VideoCard from "../../components/video-card-component/VideoCard";
 import { useVideos } from "../../context/useVideos";
 import { loadVideos } from "../../utils/video-services/loadVideos";
-
 const filterByCategory = (videos, category) => {
   return category
     ? videos.filter((video) => video.categoryName === category)

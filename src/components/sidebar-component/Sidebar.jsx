@@ -59,7 +59,7 @@ const Sidebar = () => {
             <Text ml={1}>History</Text>
           </ListItem>
         </NavLink>
-        {/* <NavLink><ListItem display="flex" alignItems="center" p={2} fontSize="xl" cursor="pointer" pl={10}_hover={{bg:"#0a1924",}} mt={2}><MdPlaylistPlay/><Text  ml={1}>Playlists</Text></ListItem></NavLink> */}
+        <NavLink to='/playlists'><ListItem display="flex" alignItems="center" p={2} fontSize="xl" cursor="pointer" pl={10}_hover={{bg:"#0a1924",}} mt={2}><MdPlaylistPlay/><Text  ml={1}>Playlists</Text></ListItem></NavLink>
         <NavLink to="/watch-later">
           <ListItem
             display="flex"
