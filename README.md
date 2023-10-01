@@ -1,3 +1,13 @@
-## Video Library Backend
+# Playdinate Video Library App
 
-This folder contains the Mock Backend created for Video Library App. It contains different API end-points and database configuration for building Video Library; so that you can focus on building Frontend.
+Playdinate is a video library web application developed using React and styled with Chakra UI.
+
+## Live Demo
+Explore the live demo of Playdinate [here](https://playdinate-react.netlify.app/).
+
+## Technologies Used
+- React
+- React Router
+- Chakra UI (for styling)
+- Mockbee for mock Backend
+- Netlify (for hosting)
